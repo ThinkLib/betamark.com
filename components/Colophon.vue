@@ -6,7 +6,7 @@
     </div>
     <div class="col">
       <h5>Colophon</h5>
-      <p>Built using <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>, hosted on <a href="https://www.netlify.com/" target="_blank">Netlify</a>. This website sometime works offline.</p>
+      <p>Built using <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>, hosted on <a href="https://www.netlify.com/" target="_blank">Netlify</a>. This website sometimes works offline.</p>
     </div>
   </div>
 </template>
