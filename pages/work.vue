@@ -8,33 +8,14 @@
     <p>Frontstand is a product I built while freelancing in Sydney. I designed and developed the website, web app and iOS app, and launched it in 2014. While it's no longer in active development, it's still being used by several companies in Australia and it's under ongoing maintenance.</p>
 
     <h3 class="projects">Open-source</h3>
-      <div class="project first">
+      <div v-for="(project, index) in projects" class="project" :class="{first: index == 0}">
         <div class="title">
-          <p><a href="https://github.com/shlomnissan/dave-wasm" target="_blank">dave-wasm</a></p>
+          <p><a :href="project.link" target="_blank">{{ project.title }}</a></p>
         </div>
         <div class="blurb">
-          <p>Remake of an old platform game in WebAssembly.</p> 
+          <p>{{ project.description }}</p> 
         </div>
       </div>
-
-      <div class="project">
-        <div class="title">
-          <p><a href="https://github.com/shlomnissan/vue-color-picker-board" target="_blank">color-picker</a></p>
-        </div>
-        <div class="blurb">
-          <p>Natural color picker component for Vue.js.</p> 
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="title">
-          <p><a href="https://github.com/shlomnissan/formbuilder" target="_blank">form-builder</a></p>
-        </div>
-        <div class="blurb">
-          <p>Drop-in form builder written in modern JavaScript.</p> 
-        </div>
-      </div>
-
     </div>
 </template>
 
@@ -49,7 +30,31 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
   }
 })
 export default class Work extends Vue {
-  
+  projects = [
+    {
+      title: "betamark.com",
+      description: "Personal theme for Nuxt.js (source for this website).",
+      link: "https://github.com/shlomnissan/betamark.com"
+    },
+    {
+      title: "dave-wasm",
+      description: "Remake of an old platform game in WebAssembly.",
+      link: "https://github.com/shlomnissan/dave-wasm"
+    },
+    {
+      title: "color-picker",
+      description: "Natural color picker component for Vue.js.",
+      link: "https://github.com/shlomnissan/vue-color-picker-board"
+    },
+    {
+      title: "form-builder",
+      description: "Drop-in form builder written in modern JavaScript.",
+      link: "https://github.com/shlomnissan/formbuilder"
+    }
+  ]
+  created() {
+
+  }
 }
 </script>
 
