@@ -1,7 +1,6 @@
-# betamark.com [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/6f0d87fb-ef8e-4cb5-81ca-b94ac681cbc9/deploy-status)](https://app.netlify.com/sites/determined-sammet-b17f31/deploys)
+# betamark.com [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/1fe1e41f-4ee5-4279-8c48-03797e8a9f9b/deploy-status)](https://app.netlify.com/sites/modest-heyrovsky-7817c9/deploys)
 
-Personal website built using Nuxt.js<br>
-[www.betamark.com](https://www.betamark.com)
+Personal website built using Nuxt.js
 
 ## Author
 
