@@ -80,10 +80,10 @@ export default class Post extends Vue {}
 
 code[class*="language-"],
 pre[class*="language-"] {
-  font-size: 14px;
-  line-height: 1.7;
-  text-shadow: none;
-  margin: @24px 0px;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  text-shadow: none !important;
+  margin: @24px 0px !important;
 }
 
 </style>
