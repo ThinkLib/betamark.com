@@ -1,0 +1,118 @@
+// html elements
+
+body {
+    color: @color-text;
+    font-size: @text-size-default;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Helvetica Neue','Segoe UI','Helvetica','Arial',sans-serif;
+}
+
+::selection{
+	color: @color-text;
+	background-color: @color-selection;
+	text-shadow:none;
+}
+
+::-moz-selection{
+	color: @color-text;
+	background-color: @color-selection;
+	text-shadow:none;
+}
+
+a {
+    color: @color-primary;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+hr {
+    width: 100px;
+    border: 0;
+    border-top: 3px solid lighten(@color-gray-light, 7%);
+    margin: @48px auto;
+}
+
+h1 {
+    .h1;    
+    @media only screen and (max-width: @content-width) {
+        .h2;
+    }
+}
+
+h2 {
+    .h2;    
+    @media only screen and (max-width: @content-width) {
+        .h3;    
+    }
+}
+
+h3 {
+    .h3; 
+    @media only screen and (max-width: @content-width) {
+        .h4;    
+    }
+}
+
+h4 {
+    .h4;
+}
+
+h5 {
+    font-size: @text-size-tiny;
+}
+
+.h1 {
+    font-size: @text-size-h1; 
+    line-height: 40px;
+}
+
+.h2 {
+    font-size: @text-size-h2;
+    line-height: 32px;
+}
+
+.h3 {
+    font-size: @text-size-h3;
+    line-height: 28px;
+}
+
+.h4 {
+    font-size: @text-size-h4;
+    line-height: 22px;
+}
+
+// colors
+
+.color-primary {
+    color: @color-primary;
+}
+
+.color-text {
+    color: @color-text;
+}
+
+.color-gray-dark {
+    color: @color-gray-dark;
+}
+
+.color-gray-light {
+    color: @color-gray-light;
+}
+
+// text
+
+.text-size-default {
+    font-size: @text-size-default;
+}
+
+.text-size-small {
+    font-size: @text-size-small;
+}
+
+.text-size-tiny {
+    font-size: @text-size-tiny;
+}

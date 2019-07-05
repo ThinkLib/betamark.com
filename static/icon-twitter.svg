@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="19px" viewBox="0 0 22 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Twitter</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1210" height="1267" rx="6"></rect>
+        <filter x="-2.3%" y="-1.7%" width="104.6%" height="104.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="6" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Articles" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="window" transform="translate(-878.000000, -242.000000)">
+            <g id="Rectangle-43">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            </g>
+        </g>
+        <path d="M21.3086547,0.341641088 C20.4392241,0.875714331 19.4785209,1.26413124 18.4517035,1.47255006 C17.6337601,0.566046586 16.464768,0 15.1705686,0 C12.6898246,0 10.6765604,2.08892506 10.6765604,4.66514754 C10.6765604,5.03106469 10.7151758,5.38573195 10.7924065,5.72737304 C7.0560784,5.53257249 3.74393414,3.67752651 1.5253065,0.851438275 C1.13798279,1.54300984 0.916822127,2.3453039 0.916822127,3.19970267 C0.916822127,4.81731697 1.71019214,6.24545961 2.9172145,7.08209542 C2.18118244,7.05959566 1.48669115,6.84762424 0.879376935,6.50065426 L0.879376935,6.55749575 C0.879376935,8.8187216 2.42925684,10.7051488 4.48757225,11.1320522 C4.11078,11.2415905 3.71292484,11.2966557 3.30278297,11.2966557 C3.01316781,11.2966557 2.73057362,11.2682349 2.45675566,11.2137618 C3.028965,13.0664394 4.68825508,14.4158329 6.65588291,14.4519509 C5.11770462,15.7036481 3.17816069,16.4496927 1.07245371,16.4496927 C0.709703408,16.4496927 0.351048677,16.4283772 0,16.3857461 C1.98927583,17.7073109 4.35358867,18.48 6.8916706,18.48 C15.1617923,18.48 19.6827142,11.3724443 19.6827142,5.20691807 C19.6827142,5.00382814 19.6792037,4.8013303 19.6715977,4.60238506 C20.5498045,3.94456313 21.3127502,3.12332191 21.9130435,2.18780558 C21.1079718,2.55845952 20.2408816,2.80950947 19.3316655,2.92200827 C20.2601893,2.3453039 20.9728181,1.43110314 21.3086547,0.341641088" id="Twitter" fill="#000000"></path>
+    </g>
+</svg>
