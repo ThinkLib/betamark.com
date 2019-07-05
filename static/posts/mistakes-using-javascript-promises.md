@@ -18,10 +18,10 @@ try {
 }
 ```
 
-**Performing asynchronous code in parallel:** In some cases, we want to perform an action preceded by asynchronous requests that are mutually independent. Running them in parallel is an opprtunity to improve performance but with simple callbacks, it requires some boilerplate code:
+**Performing asynchronous code in parallel:** In some cases, we want to perform an action preceded by asynchronous requests that are mutually independent. Running them in parallel is an opportunity to improve performance but with simple callbacks, it requires some boilerplate code:
 
 ```javascript
-var users, entries;
+let users, entries;
  
 get("http://data.io/users", function(users) {
     users = users;
@@ -54,7 +54,7 @@ get("http://data.com/user", function(user) {
 
 - - -
 
-The promise syntax immediately addresses the first problem, *difficult error handling*. The `then()` function lets us pass two callbacks to handle resolved promises, one for the fulfilled state (resolved successfully) and one for the rejected state (an error has occurred). As for the other two problems, we still fail to address them at times.
+The promise syntax immediately addresses the first problem, *difficult error handling*. The `then()` function lets us pass two callbacks to handle resolved promises, one for the fulfilled state (resolved successfully) and one for the rejected state (an error has occurred). As for the other two problems, we still fail to address them at times, even with the use of promises.
 
 ### Mistake 1: Not running asynchronous tasks in parallel
 
@@ -84,9 +84,11 @@ Promise.all([
     // handle error
 });
 ```
-In this example, both promises will be processed asynchronously and only when both of them are resolved, we handle the result. JavaScript is still single-threaded but since fetch is a primitive handled internally by the browser, it supports multiple fetches at once.
+In this example, both promises will be processed asynchronously and only when both of them are resolved, we handle the result. It's important to note that if any of the promises is rejected, the catch block will get executed as soon as the first rejection occurs.
 
-Another related function is `Promise.race()`. Like `Promise.all()`, It takes an array of promises, but `Promise.race()` only handles the first request that’s resolved, regardless of which one it is:
+JavaScript is still single-threaded but since fetch is a primitive handled internally by the browser, it supports multiple fetches at once.
+
+Another related function is `Promise.race()`. Like `Promise.all()`, it takes an array of promises, but `Promise.race()` only handles the first request that’s resolved, regardless of which one it is:
 
 ```javascript
 Promise.race([
@@ -115,20 +117,20 @@ get("http://data.com/user").then(user => {
 });
 ```
 
-This example looks very similar to the one that’s using callbacks. Let’s see how we can make things a little better by chaining these requests:
+This example looks very similar to the one that’s using callbacks. We can make things a little better by chaining these requests:
 
 ```javascript
-get("http://data.com/user")
-.then(user => get("http://data.com/location" + user.id))
-.then(location => createEntry(user, location))
-.then(response => { 
-    // handle response
+get("http://data.com/user") 
+.then(user => get("http://data.com/location" + user.id)
+.then(location => createEntry(user, location)))
+.then(response => {
+    // handle response 
 }).catch(err => {
     // handle failure
 });
 ```
 
-This example looks much better! It certainly makes the code more readable, but we can do even better.
+This pattern certainly makes the code more readable, but we can do even better.
 
 ### Mistake 3: Not adopting new features
 
@@ -143,9 +145,9 @@ If we were to write an async handler function that takes a generator as a parame
 ```javascript
 async(function *() {
     try {
-        let user = yield get("http://data.com/user");;
-        let location = yield get("http://data.com/location");
-        let response = yield createEntry(user, location);
+        const user = yield get("http://data.com/user");
+        const location = yield get("http://data.com/location" + user.id);
+        const response = yield createEntry(user, location);
         // handle response
     } catch(error) {
         // something went wrong
@@ -153,18 +155,18 @@ async(function *() {
 });
 ```
 
-If you are curious about implementing an async handler using generators, I encourage you to explore this topic, but in the meantime, you can get started with async functions right away!
+If you are curious about implementing an async handler using generators, I encourage you to explore this topic, but in the meantime, you can get started with async functions.
 
-The ECMAScript committee was well aware of the benefits of combining generators and promises so they decided to save us the time by introducing async functions in ES2016.
+The ECMAScript committee was well aware of the benefits of combining generators and promises so they decided to save us time by introducing async functions in ES2016.
 
-Now, without writing any additional code, we could rewrite our last example using async/await:
+Now, without writing any additional code, we can rewrite our last example using async/await:
 
 ```javascript
 async function processRequests() {
 	try {
-        let user = await get("http://data.com/user");;
-        let location = await get("http://data.com/location");
-        let response = await createEntry(user, location);
+        const user = await get("http://data.com/user"); 
+        const location = await get("http://data.com/location" + user.id);
+        const response = await createEntry(user, location);
         // handle response
     } catch(error) {
         // something went wrong
@@ -172,10 +174,6 @@ async function processRequests() {
 }
 ```
 
-It shouldn’t surprise you that both examples look very similar. Under the hood, async functions are essentially a mixture of generators and promises, but now we don’t have to think about the implementation.
-
-If you want to learn more about async functions, a good place to start is [Async functions — making promises friendly](https://developers.google.com/web/fundamentals/primers/async-functions) by Jake Archibald at Google.
-
-- - -
+It shouldn’t surprise you that both examples look very similar. Under the hood, async functions are essentially a mixture of generators and promises, but now we don’t have to think about the implementation. If you want to learn more about async functions, a good place to start is [Async functions — making promises friendly](https://developers.google.com/web/fundamentals/primers/async-functions) by Jake Archibald at Google.
 
 I hope this article highlighted some common issues we can all avoid moving forward. If you’ve got feedback, the best way to reach me is on Twitter [@shlominissan](https://twitter.com/shlominissan).
